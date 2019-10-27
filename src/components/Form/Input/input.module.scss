@@ -1,0 +1,21 @@
+@import "../../../styles/generic";
+.Input {
+  font-family: 'Gilroy-Regular', sans-serif;
+  &Label {
+    letter-spacing: 0.03rem;
+    line-height: 1.29rem;
+    color: $primary;
+   
+  }
+  &Field {
+    font-size: 1rem;
+    cursor: text;
+    border: 2px solid $borderColor;
+    border-radius: $InputBorderRadius;
+    width: 100%;
+    padding: 1.285em 1.07rem;
+    line-height: 1.28rem;
+    color: inherit;
+    margin: 0.875rem 0;
+  }
+}

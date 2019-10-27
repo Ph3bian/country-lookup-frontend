@@ -1,0 +1,56 @@
+@import "./variables";
+@import "./theme";
+@import "./mixins";
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @include md {
+        font-size: 75%;
+    }
+
+    @include xl {
+        font-size: 100%;
+    }
+
+    @include rwd(1440) {
+        font-size: 112.5%;
+    }
+
+    @include rwd(2560) {
+        font-size: 200%;
+    }
+}
+
+body {
+    font-family: 'Gilroy-Regular', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    max-width: 2560px;
+    margin: 0 auto;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+
+    &:focus,
+    &:visited,
+    &:active {
+        outline: 0;
+    }
+}

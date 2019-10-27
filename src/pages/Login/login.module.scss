@@ -1,0 +1,29 @@
+@import "../../styles/generic";
+.Login {
+  display: flex;
+  height: 100vh;
+  background: center / cover no-repeat url("../../assets/images/loginBg.jpg");
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(to right, rgba(0,0,0,.3) , rgba(0,0,0,0) );
+  }
+  &Form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > form {
+      justify-content: center;
+    }
+  }
+  &ImageHolder {
+    width: 100%;
+  }
+}
