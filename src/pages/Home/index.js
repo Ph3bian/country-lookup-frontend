@@ -6,7 +6,6 @@ const Home = () => {
     const [country, setCountry] = useState("")
     const { addToast } = useToasts()
     const handleSubmit = () => {
-        
         Axios.post(`/countries`, ({ params: country })).then((response) => {
             addToast(response.message, { appearance: 'success' })
         }).catch(({ error }) => addToast(error.message, { appearance: 'success' }))

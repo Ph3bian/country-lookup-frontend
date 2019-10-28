@@ -33,23 +33,21 @@ const Login = ({ history }) => {
                 <form className={styles.LoginFormContainer} onSubmit={handleSubmit}>
 
                     <input
-
-                        name={'email'}
-                        type={'text'}
+                        name='email'
+                        type='text'
                         onChange={e => setEmail(e.target.value)}
                         value={email}
-                        error={errors.email}
+                      
 
                         required
                     />
 
                     <input
-
                         name={'password'}
                         type={'password'}
                         onChange={e => setPassword(e.target.value)}
                         value={password}
-                        error={errors.password}
+                    
 
                     />
 
