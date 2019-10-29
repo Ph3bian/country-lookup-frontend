@@ -1,11 +1,14 @@
 @import "../../../styles/variables";
 
-.Button{
-    font-family: 'Gilroy-Regular', sans-serif;
-    width: 100%;
-    padding: 1.285em 1.07rem;
-    background: $primary;
-    color: $white;
-    border-radius: $InputBorderRadius;
-    border:none;
+.Button {
+  font-family: 'Gentium Basic', serif;
+  width: 100%;
+  padding: 0.75rem;
+  background: $secondary;
+  color: $primary;
+  border-radius: $InputBorderRadius;
+  border: none;
+  font-size: 1rem;
+  margin-top: .85rem;
+  font-weight: bold;
 }

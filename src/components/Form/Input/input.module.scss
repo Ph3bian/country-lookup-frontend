@@ -1,28 +1,35 @@
 @import "../../../styles/generic";
 .Input {
-  font-family: "Gilroy-Regular", sans-serif;
+  margin: 0.875rem 0;
 
   &Label {
     line-height: 1.29rem;
-    color: $primary;
+    color: $secondary;
+    font-size: 1rem;
+    font-weight: bold;
+   
   }
   &Field {
+   
     cursor: text;
     border: 2px solid $borderColor;
     border-radius: $InputBorderRadius;
     width: 100%;
-    padding: 0 0.75rem;
-    height: 32px;
-    color: inherit;
-    margin: 0.875rem 0;
+    position: relative;
+    padding: .75rem;
+    line-height: 1.28rem;
+    color: $primary;
     outline: none;
+    font-size: .95rem;
+    margin-top: .5rem;
 
     &__Error {
       color: $error;
+      font-size: 0.75rem;
     }
     &:focus,
     &:active {
-      border-color: $primary;
+      border-color: rgba($secondary,.5);
     }
   }
 }

@@ -1,56 +1,57 @@
 @import "./variables";
 @import "./theme";
 @import "./mixins";
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic&display=swap');
 html {
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
 
-    @include md {
-        font-size: 75%;
-    }
+  @include md {
+    font-size: 75%;
+  }
 
-    @include xl {
-        font-size: 100%;
-    }
+  @include xl {
+    font-size: 100%;
+  }
 
-    @include rwd(1440) {
-        font-size: 112.5%;
-    }
+  @include rwd(1440) {
+    font-size: 112.5%;
+  }
 
-    @include rwd(2560) {
-        font-size: 200%;
-    }
+  @include rwd(2560) {
+    font-size: 200%;
+  }
 }
 
 body {
-    font-family: 'Gilroy-Regular', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
-    font-style: normal;
-    font-weight: normal;
-    max-width: 2560px;
-    margin: 0 auto;
+  font-family: "Gentium Basic", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: normal;
+  max-width: 2560px;
+  margin: 0 auto;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    font-family: inherit;
-    color: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  color: inherit;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 
-    &:focus,
-    &:visited,
-    &:active {
-        outline: 0;
-    }
+  &:focus,
+  &:visited,
+  &:active {
+    outline: 0;
+  }
 }

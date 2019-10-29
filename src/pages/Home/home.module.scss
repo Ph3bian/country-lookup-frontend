@@ -1,0 +1,37 @@
+.Home {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  &Container {
+    &__Search {
+    }
+    &__List {
+      table {
+        thead {
+          display: table-header-group;
+          vertical-align: middle;
+          border-color: inherit;
+          th {
+            padding: 16px 12px;
+            text-align: left;
+            vertical-align: bottom;
+            font-size: 12px;
+            font-weight: normal;
+            color: #999;
+            text-transform: uppercase;
+          }
+          tbody {
+            tr {
+              transition: background-color .1s linear;
+              &:nth-last-of-type(odd) {
+                background: #f8f8f8;
+                border-top: 1px solid #e5e5e5;
+                border-bottom: 1px solid #e5e5e5;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

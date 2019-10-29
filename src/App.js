@@ -1,16 +1,13 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { ToastProvider} from 'react-toast-notifications'
-import Routes from './components/Routes'
+import { ToastProvider } from 'react-toast-notifications'
+import PageRouter from './components/PageRouter'
 import './App.scss'
 
 function App() {
     return (
-        <BrowserRouter>
-         <ToastProvider>
-            <Routes />
-            </ToastProvider>
-        </BrowserRouter>
+        <ToastProvider autoDismissTimeout={3000} autoDismiss={true} >
+            <PageRouter />
+        </ToastProvider>
     )
 }
 

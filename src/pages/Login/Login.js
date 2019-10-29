@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from './login.module.scss'
 import { Input, Button } from '../../components/Form'
 import { useToasts } from '../../components/Toaster'
 import validation from './validation'
 import Axios from '../../utils/axios'
 
-const Login = () => {
+const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
@@ -13,30 +13,41 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        setErrors(validation({ email, password }))
+        const errors = validation({ email, password })
+        setErrors(errors)
 
-        if (Object.keys(errors).length !== 0) {
-            addToast('Oops! invalid credentials', {
+        if (Object.keys(errors).length > 0) {
+            return addToast('Oops! invalid credentials', {
                 appearance: 'error'
             })
-            return errors
         }
-        // Axios.post(`/auth/login`, { email, password }).then((response) => {
-        //      addToast(response.message, { appearance: 'success' })
-        // Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-        //     const token = response.data.token
-        //     history.push(`/`)
-        //     localStorage.setItem("countryToken", JSON.stringify(token))
+        return Axios.post(`/auth/login`, { email, password })
+            .then(response => {
+                addToast(response.data.message, { appearance: 'success' })
+                const token = response.data.token
+                Axios.defaults.headers.common[
+                    'Authorization'
+                ] = `Bearer ${token}`
+                return localStorage.setItem(
+                    'countryToken',
+                    JSON.stringify(token)
+                )
+            })
+            .catch(({ response: { data } }) =>
+                addToast(data[0].message, { appearance: 'error' })
+            )
     }
-
     return (
         <div className={styles.Login}>
             <div className={styles.LoginForm}>
+              
                 <form
                     className={styles.LoginFormContainer}
                     onSubmit={handleSubmit}
                 >
+                <h2>Hello! login here</h2>
                     <Input
+                        label={'Email'}
                         name={'email'}
                         type={'email'}
                         onChange={e => setEmail(e.target.value)}
@@ -44,8 +55,8 @@ const Login = () => {
                         error={errors.email}
                         required
                     />
-
                     <Input
+                        label={'Password'}
                         name={'password'}
                         type={'password'}
                         onChange={e => setPassword(e.target.value)}
