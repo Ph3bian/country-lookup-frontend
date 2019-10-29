@@ -1,8 +1,10 @@
+@import "../../styles/generic";
 .Home {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   &Container {
+    width: 35rem;
     &__Search {
     }
     &__List {
@@ -21,16 +23,26 @@
             text-transform: uppercase;
           }
           tbody {
-            tr {
-              transition: background-color .1s linear;
-              &:nth-last-of-type(odd) {
-                background: #f8f8f8;
-                border-top: 1px solid #e5e5e5;
-                border-bottom: 1px solid #e5e5e5;
+            &:nth-last-of-type(odd) {
+              background: #f8f8f8;
+              border-top: 1px solid #e5e5e5;
+              border-bottom: 1px solid #e5e5e5;
+              tr {
+                transition: background-color 0.1s linear;
               }
+            }
+
+            td {
+              padding: 16px 12px;
+              vertical-align: top;
             }
           }
         }
+      }
+      &Delete {
+        border: 2px solid $error;
+        background: rgba($error, 0.3);
+        color: $error
       }
     }
   }

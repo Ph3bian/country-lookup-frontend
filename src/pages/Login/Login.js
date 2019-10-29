@@ -5,7 +5,7 @@ import { useToasts } from '../../components/Toaster'
 import validation from './validation'
 import Axios from '../../utils/axios'
 
-const Login = (props) => {
+const Login = props => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
@@ -25,9 +25,6 @@ const Login = (props) => {
             .then(response => {
                 addToast(response.data.message, { appearance: 'success' })
                 const token = response.data.token
-                Axios.defaults.headers.common[
-                    'Authorization'
-                ] = `Bearer ${token}`
                 return localStorage.setItem(
                     'countryToken',
                     JSON.stringify(token)
@@ -40,12 +37,11 @@ const Login = (props) => {
     return (
         <div className={styles.Login}>
             <div className={styles.LoginForm}>
-              
                 <form
                     className={styles.LoginFormContainer}
                     onSubmit={handleSubmit}
                 >
-                <h2>Hello! login here</h2>
+                    <h2>Hello! login here</h2>
                     <Input
                         label={'Email'}
                         name={'email'}
