@@ -6,35 +6,37 @@
   top: 0;
   bottom: 0;
   height: 100vh;
-  width: 18.75rem;
+  width: 20rem;
   background: white;
   box-shadow: 0 40px 64px 0 rgba(65, 78, 101, 0.1), 0 24px 32px 0 rgba(65, 78, 101, 0.1),
     0 16px 16px 0 rgba(65, 78, 101, 0.1), 0 8px 8px 0 rgba(65, 78, 101, 0.1), 0 4px 4px 0 rgba(65, 78, 101, 0.1),
     0 2px 2px 0 rgba(65, 78, 101, 0.1);
-
+    z-index: 1;
   &Header {
     display: flex;
     justify-content: space-between;
-    height: 50px;
+    height: 3.5rem;
     background: $primary;
     color: $white;
-    padding: 12px;
+    padding: 1rem;
     span {
       cursor: pointer;
       font-size: 0.875rem;
+      svg{
+        fill: $white
+      }
     }
   }
   &Body {
-    height: calc(100vh - 110px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-  }
-  &Footer {
-    height: 50px;
+    height: calc(100vh - 3.125rem);
+    padding: 2rem;
+    label{
+      color:#757575;
+    }
     button {
       background: $secondary;
+      width:100%;
     }
   }
+  
 }

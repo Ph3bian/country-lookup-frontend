@@ -40,8 +40,8 @@
   }
     &__Delete {
         border: 1px solid $error;
-        background: rgba($error, 0.45);
-        color: $white;
+        background: transparent;
+        color: $error;
         padding: 5px 12px;
         border-radius: $InputBorderRadius;
       }

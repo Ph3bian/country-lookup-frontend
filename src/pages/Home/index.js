@@ -3,12 +3,11 @@ import Axios from 'utils/axios'
 import { useToasts } from 'components/Toaster'
 import styles from './home.module.scss'
 import { Input, Button } from 'components/Form'
-import Loader from 'components/Loader'
 import Nav from './Nav'
 import Table from './Table'
 import Convert from './Convert'
 
-const Home = () => {
+const Home = ({setAuth}) => {
     const [country, setCountry] = useState('')
     const { addToast } = useToasts()
     const [isConvert, setIsConvert] = useState(false)
@@ -53,13 +52,12 @@ const Home = () => {
     }
 
     const handleConversion = () => setIsConvert(true)
-
     const closeConvertSlider = value => setIsConvert(value)
     const clearConversion = () => setAmount(0)
 
     return (
         <div className={styles.Home}>
-            <Nav />
+            <Nav setAuth={setAuth} />
             <div className={styles.HomeContainer}>
                 <div className={styles.HomeContainerBody}>
                     <form

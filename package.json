@@ -12,11 +12,12 @@
         "react-toast-notifications": "^2.2.5"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "node server.js && react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "prettier": "prettier --write './**/*.{js,json}'"
+        "prettier": "prettier --write './**/*.{js,json}'",
+        "postinstall": "react-scripts build --aot --prod"
     },
     "eslintConfig": {
         "extends": "react-app"

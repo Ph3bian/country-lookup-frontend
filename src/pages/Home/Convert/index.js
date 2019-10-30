@@ -4,11 +4,12 @@ import { useToasts } from 'components/Toaster'
 import { Close } from 'assets/svg'
 import styles from './convert.module.scss'
 
-const Convert = ({setAmount, closeConvertSlider }) => {
+const Convert = ({ setAmount, closeConvertSlider }) => {
     const { addToast } = useToasts()
     const [convertAmount, setConvertAmount] = useState(0)
 
-    const handleSubmit = () => {
+    const handleSubmit = e => {
+        e.preventDefault()
         if (convertAmount <= 0) {
             return addToast('Enter valid amount', { appearance: 'info' })
         }
@@ -22,7 +23,9 @@ const Convert = ({setAmount, closeConvertSlider }) => {
         <div className={styles.Convert}>
             <div className={styles.ConvertHeader}>
                 <p>Convert Amount</p>
-                <span onClick={closeConvert}><Close/></span>
+                <span onClick={closeConvert}>
+                    <Close />
+                </span>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className={styles.ConvertBody}>

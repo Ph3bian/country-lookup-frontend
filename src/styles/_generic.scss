@@ -1,7 +1,7 @@
 @import "./variables";
 @import "./theme";
 @import "./mixins";
-@import url('https://fonts.googleapis.com/css?family=Gentium+Basic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: "Gentium Basic", serif;
+  font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
