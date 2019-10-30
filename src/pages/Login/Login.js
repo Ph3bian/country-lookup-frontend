@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from './login.module.scss'
-import { Input, Button } from '../../components/Form'
-import { useToasts } from '../../components/Toaster'
+import { Input, Button } from 'components/Form'
+import { useToasts } from 'components/Toaster'
 import validation from './validation'
-import Axios from '../../utils/axios'
+import Axios from 'utils/axios'
 
 const Login = props => {
     const [email, setEmail] = useState('')
@@ -25,15 +25,19 @@ const Login = props => {
             .then(response => {
                 addToast(response.data.message, { appearance: 'success' })
                 const token = response.data.token
+                props.setAuth(true)
                 return localStorage.setItem(
                     'countryToken',
                     JSON.stringify(token)
                 )
             })
-            .catch(({ response: { data } }) =>
-                addToast(data[0].message, { appearance: 'error' })
-            )
+            .catch(({ response }) => {
+                if (response) {
+                   return addToast(response.data[0].message, { appearance: 'error' })
+                }else return addToast('Oops Something went wrong', { appearance: 'error' })
+            })
     }
+
     return (
         <div className={styles.Login}>
             <div className={styles.LoginForm}>

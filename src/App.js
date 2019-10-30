@@ -5,7 +5,7 @@ import './App.scss'
 
 function App() {
     return (
-        <ToastProvider autoDismissTimeout={3000} autoDismiss={true} >
+        <ToastProvider autoDismissTimeout={2000} autoDismiss={true}>
             <PageRouter />
         </ToastProvider>
     )

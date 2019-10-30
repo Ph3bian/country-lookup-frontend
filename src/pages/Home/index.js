@@ -1,26 +1,38 @@
 import React, { useState } from 'react'
-import Axios from '../../utils/axios'
-import { useToasts } from '../../components/Toaster'
+import Axios from 'utils/axios'
+import { useToasts } from 'components/Toaster'
 import styles from './home.module.scss'
-import { Input, Button } from '../../components/Form'
+import { Input, Button } from 'components/Form'
+import Nav from "./Nav"
+import Table from './Table'
+import Convert from './Convert'
+
 
 const Home = () => {
     const [country, setCountry] = useState('')
     const { addToast } = useToasts()
+    const [isConvert, setIsConvert] = useState(false)
     const [countryList, setCountryList] = useState(
         localStorage.getItem('countryList')
             ? JSON.parse(localStorage.getItem('countryList'))
             : []
     )
-
+    const [amount, setAmount] = useState(0)
     const handleSubmit = e => {
         e.preventDefault()
+        if (!country) {
+            return addToast('Enter valid country name', { appearance: 'info' })
+        }
 
-        Axios.get(`/countries`, { params: { search: country } })
+        return Axios.get(`/countries`, { params: { search: country } })
             .then(({ data }) => {
-                console.log(data, 'data')
-                setCountryList([...countryList, data.body])
-                localStorage.setItem('countryList', JSON.stringify(countryList))
+                setCountry('')
+                let newCountryList = [...countryList, data.body]
+                setCountryList(newCountryList)
+                localStorage.setItem(
+                    'countryList',
+                    JSON.stringify(newCountryList)
+                )
                 return addToast(data.message, { appearance: 'success' })
             })
             .catch(({ response }) => {
@@ -36,72 +48,65 @@ const Home = () => {
             })
     }
 
-    const handleDelete = id => {
-        let newCountryList = countryList.filter(country => country.id !== id)
-        setCountryList(newCountryList)
-        return localStorage.setItem(
-            'countryList',
-            JSON.stringify(newCountryList)
-        )
-    }
+    const handleConversion = () => setIsConvert(true)
 
-    const handleConversion = () => {}
+    const closeConvertSlider = value => setIsConvert(value)
+    const clearConversion = () => setAmount(0)
+
     return (
         <div className={styles.Home}>
+            <Nav/>
             <div className={styles.HomeContainer}>
+           <div className={styles.HomeContainerBody}>
                 <form
                     onSubmit={handleSubmit}
                     className={styles.HomeContainer__Search}
                 >
+                <div className={styles.HomeContainer__SearchContainer}>
+                    <div id={styles.searchIcon}></div>
                     <Input
+                        name={'country'}
+                        placeholder={'Enter Country Name'}
                         value={country}
                         onChange={e => setCountry(e.target.value)}
                     />
-                    <div>
-                        <Button type="submit">Search</Button>
-                        <Button type="button" onClick={() => handleConversion}>
-                            Convert Amount
-                        </Button>
+                    </div>
+                    <div className={styles.HomeContainer__Button}>
+                        <Button type="submit" value={'Search'} />
+                        {amount === 0 && (
+                            <Button
+                                type="button"
+                                value={'Convert Amount'}
+                                onClick={handleConversion}
+                            />
+                        )}
+                        {amount !== 0 && (
+                            <Button
+                                type="button"
+                                value={'Clear Result'}
+                                onClick={clearConversion}
+                            />
+                        )}
                     </div>
                 </form>
 
-                <div className={styles.HomeContainer__List}>
-                    {countryList.length !== 0 && (
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Full name</th>
-                                    <th>Population</th>
-                                    <th>Currencies</th>
-                                    <th>Exchange Rates</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {countryList.map(country => (
-                                    <tr
-                                        key={`${country.fullName}-${country.id}`}
-                                    >
-                                        <td>{country.fullName}</td>
-                                        <td>{String(country.population)}</td>
-                                        <td>{country.currencies}</td>
-                                        <td>{country[country.currencies]}</td>
-                                        <td>
-                                            <Button className={styles.HomeContainer__ListDelete}
-                                                type="button"
-                                                onClick={() =>
-                                                    handleDelete(country.id)
-                                                }
-                                            >
-                                                Delete
-                                            </Button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    )}
-                </div>
+                {countryList.length !== 0 && (
+                    <div className={styles.HomeContainer__List}>
+                        <Table
+                            countryList={countryList}
+                            setCountryList={setCountryList}
+                            amount={amount}
+                        />
+                    </div>
+                )}
+            </div>
+
+            {isConvert && (
+                <Convert
+                    closeConvertSlider={closeConvertSlider}
+                    setAmount={setAmount}
+                />
+            )}
             </div>
         </div>
     )

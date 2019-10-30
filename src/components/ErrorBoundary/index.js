@@ -23,7 +23,8 @@ export class ErrorBoundary extends Component {
                     style={{
                         backgroundColor: 'grey',
                         display: 'inline-block',
-                        padding: 10
+                        padding: 10,
+                        width:'100%',
                     }}
                 >
                     <h3>Something went wrong. Can't render this part.</h3>

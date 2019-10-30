@@ -1,0 +1,48 @@
+@import "../../../styles/generic";
+
+.Table{
+  overflow:scroll;
+  table {
+ 
+    border-collapse: collapse;
+    border-spacing: 0;
+    thead {
+      display: table-header-group;
+      vertical-align: middle;
+      border-color: inherit;
+      th {
+        padding: 16px 12px;
+        text-align: left;
+        vertical-align: bottom;
+        font-size: 13px;
+        font-weight: normal;
+        color: #999;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
+    tbody {
+      tr {
+        transition: background-color 0.1s linear;
+        td {
+          padding: 16px 12px;
+          vertical-align: middle;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+        &:nth-last-of-type(even) {
+          background: #f8f8f8;
+          border-top: 1px solid #e5e5e5;
+          border-bottom: 1px solid #e5e5e5;
+        }
+      }
+    }
+  }
+    &__Delete {
+        border: 1px solid $error;
+        background: rgba($error, 0.45);
+        color: $white;
+        padding: 5px 12px;
+        border-radius: $InputBorderRadius;
+      }
+}

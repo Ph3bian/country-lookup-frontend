@@ -15,22 +15,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:$primary;
-    h2{
-      color:$secondary;
-      font-weight:bold;
+    background: $primary;
+    h2 {
+      color: $secondary;
       text-align: center;
     }
-    > form {
+    form {
       justify-content: center;
+      button {
+        width: 100%;
+      }
     }
-    &Container{
+    &Container {
       max-width: 25rem;
       width: 20rem;
     }
   }
   &ImageHolder {
+    &:before {
+      content: "";
+      display: block;
+      height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
     width: 100%;
-    background: center / cover no-repeat url("../../assets/images/loginBg.jpg");
+    background: center / cover no-repeat url("../../assets/images/world.jpg");
   }
 }
