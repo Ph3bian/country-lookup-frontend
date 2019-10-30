@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from './login.module.scss'
 import { Input, Button } from 'components/Form'
-import Loader from 'components/Loader'
 import { useToasts } from 'components/Toaster'
 import validation from './validation'
 import Axios from 'utils/axios'
@@ -77,7 +76,8 @@ const Login = props => {
 
                     <Button
                         type={'submit'}
-                        value={loading ? <Loader /> : 'Submit'}
+                        value={'Submit'}
+                        loading={loading}
                     />
                 </form>
             </div>

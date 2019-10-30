@@ -78,7 +78,8 @@ const Home = () => {
                         <div className={styles.HomeContainer__Button}>
                             <Button
                                 type="submit"
-                                value={loading ? <Loader /> : 'Search'}
+                                loading={loading}
+                                value={'Search'}
                             />
                             {amount === 0 && (
                                 <Button
