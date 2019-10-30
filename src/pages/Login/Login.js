@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './login.module.scss'
 import { Input, Button } from 'components/Form'
+import Loader from 'components/Loader'
 import { useToasts } from 'components/Toaster'
 import validation from './validation'
 import Axios from 'utils/axios'
@@ -9,6 +10,7 @@ const Login = props => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
+    const [loading, setLoading] = useState(false)
     const { addToast } = useToasts()
 
     const handleSubmit = e => {
@@ -21,20 +23,28 @@ const Login = props => {
                 appearance: 'error'
             })
         }
+        setLoading(true)
+
         return Axios.post(`/auth/login`, { email, password })
             .then(response => {
                 addToast(response.data.message, { appearance: 'success' })
                 const token = response.data.token
                 props.setAuth(true)
-                return localStorage.setItem(
-                    'countryToken',
-                    JSON.stringify(token)
-                )
+                localStorage.setItem('countryToken', JSON.stringify(token))
+                return setLoading(false)
             })
             .catch(({ response }) => {
                 if (response) {
-                   return addToast(response.data[0].message, { appearance: 'error' })
-                }else return addToast('Oops Something went wrong', { appearance: 'error' })
+                    addToast(response.data[0].message, {
+                        appearance: 'error'
+                    })
+                    return setLoading(false)
+                } else {
+                    addToast('Oops Something went wrong', {
+                        appearance: 'error'
+                    })
+                    return setLoading(false)
+                }
             })
     }
 
@@ -65,7 +75,10 @@ const Login = props => {
                         required
                     />
 
-                    <Button type={'submit'} value={'Submit'} />
+                    <Button
+                        type={'submit'}
+                        value={loading ? <Loader /> : 'Submit'}
+                    />
                 </form>
             </div>
             <div className={styles.LoginImageHolder}></div>
