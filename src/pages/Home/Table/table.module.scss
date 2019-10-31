@@ -16,7 +16,7 @@
         vertical-align: bottom;
         font-size: 13px;
         font-weight: normal;
-        color: #999;
+        color: $secondary;
         text-transform: uppercase;
         white-space: nowrap;
       }
@@ -29,12 +29,11 @@
           vertical-align: middle;
           font-size: 13px;
           white-space: nowrap;
-        }
-        &:nth-last-of-type(even) {
           background: #f8f8f8;
           border-top: 1px solid #e5e5e5;
           border-bottom: 1px solid #e5e5e5;
         }
+       
       }
     }
   }

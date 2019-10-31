@@ -32,9 +32,9 @@ const Table = ({ countryList, setCountryList, amount }) => {
                     {countryList.map(country => (
                         <tr key={`${country.fullName}-${country.id}`}>
                             <td>{country.fullName}</td>
-                            <td>{String(country.population)}</td>
-                            <td>{country.currencies}</td>
-                            <td>{numFormat(country[country.currencies])}</td>
+                            <td>{Number(country.population)}</td>
+                            <td>{country.formattedCurreny}</td>
+                            <td>{numFormat(country.currency)}</td>
                             <td>
                                 <Button
                                     value={'Delete'}

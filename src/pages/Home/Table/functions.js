@@ -1,1 +1,1 @@
-export const numFormat =amount=>  Number.parseFloat(amount).toFixed(2);
+export const numFormat =amountArray=> amountArray.map(amount=>`${amount.code}: ${Number.parseFloat(amount.rate).toFixed(2)} `)
