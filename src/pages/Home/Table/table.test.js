@@ -15,7 +15,7 @@ afterEach(() => {
     container = null
 })
 
-it('renders with or without setAuth', () => {
+it('renders with props countryList', () => {
     act(() => {
         render(
             <Table
@@ -23,9 +23,19 @@ it('renders with or without setAuth', () => {
                     {
                         id: '1',
                         fullName: 'Nigeria',
-                        currencies: 'NGN',
+                        formattedCurreny: 'NGN',
                         population: '20',
-                        NGN: 402.798009
+                        currency: [
+                            {
+                                code: 'NGN',
+                                name: 'Nigerian naira',
+                                symbol: '₦',
+                                rate: 404.792991
+                            }
+                        ],
+                        exchangeRates: {
+                            NGN: 404.792991
+                        }
                     }
                 ]}
             />,
