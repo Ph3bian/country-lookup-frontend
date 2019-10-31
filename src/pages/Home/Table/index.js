@@ -44,12 +44,12 @@ const Table = ({ countryList, setCountryList, amount }) => {
                                 />
                             </td>
                             {amount > 0 && (
-                                <th>
+                                <td>
                                     {' '}
                                     {numFormat(
                                         amount * country[country.currencies]
                                     )}
-                                </th>
+                                </td>
                             )}
                         </tr>
                     ))}

@@ -1,14 +1,10 @@
 @import "../../styles/generic";
 .Login {
-  display: block;
-
-
-  @include md {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-row: 1;
-    height: 100vh;
-  }
+  background: url('../../assets/svg/patterns.svg') no-repeat $primary;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: 1;
+  height: 100vh;
 
   &Form {
     height: 100vh;
@@ -16,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $primary;
+
     h2 {
       color: $secondary;
       text-align: center;
@@ -30,23 +26,6 @@
     &Container {
       max-width: 25rem;
       width: 20rem;
-    }
-  }
-  &ImageHolder {
-    display: none;
-    @include md {
-      display: block;
-      &:before {
-        content: "";
-        display: block;
-        height: 100%;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-      }
-      width: 100%;
-      background: center / cover no-repeat url("../../assets/images/world.jpg");
     }
   }
 }
