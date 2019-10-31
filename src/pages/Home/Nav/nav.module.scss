@@ -1,19 +1,20 @@
 @import '../../../styles/generic';
 .Nav{
-    padding:0.75rem;
-    background-color: $white;
-    color: #66788a;
-    margin: 4px;
-    border-radius:$InputBorderRadius ;
-    -webkit-box-shadow: 0 0 0 1px rgba(67,90,111,.14);
-    box-shadow: 0 0 0 1px rgba(67,90,111,.14);
+    padding: 0.75rem;
+    color: $secondary;
+    box-shadow: 0 0 0 1px rgba(253, 204, 39, 0.14);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include md{
+    padding: 0.75rem 1.4rem;
+   
+}
     button{
         margin:0;
         background: transparent;
-        border: 1px solid $primary;
+        border: 1px solid $secondary;
         font-size: .8rem;
+        color:$secondary;
     }
 }
