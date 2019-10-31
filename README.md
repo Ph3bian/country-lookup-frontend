@@ -1,7 +1,7 @@
 # country-lookup
 Look up a country by name and returns the full name, population and a list of its official currencies.
 
-[COUNTRY LOOKUP](https://anyfin.ph3bian.com)
+Application Url: [COUNTRY LOOKUP](https://anyfin.ph3bian.com)
 
 
 ## Project Description (User Stories)
