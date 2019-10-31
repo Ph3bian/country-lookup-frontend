@@ -1,7 +1,7 @@
 @import "./variables";
 @import "./theme";
 @import "./mixins";
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
@@ -53,5 +53,11 @@ button {
   &:visited,
   &:active {
     outline: 0;
+  }
+}
+
+:global {
+  [class$="-ToastContainer"] {
+    z-index: 2;
   }
 }

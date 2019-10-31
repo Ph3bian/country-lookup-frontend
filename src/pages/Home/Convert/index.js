@@ -7,11 +7,15 @@ import styles from './convert.module.scss'
 const Convert = ({ setAmount, closeConvertSlider }) => {
     const { addToast } = useToasts()
     const [convertAmount, setConvertAmount] = useState(0)
-
+    let error="";
     const handleSubmit = e => {
         e.preventDefault()
         if (convertAmount <= 0) {
             return addToast('Enter valid amount', { appearance: 'info' })
+        }
+        if (convertAmount.match(/^\d+\.?\d*$/) === null) {
+             error="Enter valid amount"
+            return addToast('Invalid amount', { appearance: 'info' })
         }
         setAmount(convertAmount)
         return closeConvertSlider(false)
@@ -35,6 +39,7 @@ const Convert = ({ setAmount, closeConvertSlider }) => {
                         onChange={e => setConvertAmount(e.target.value)}
                         label="Amount"
                         type={'text'}
+                        error={error}
                     />
                     <Button type={'submit'} value={'Submit'} />
                 </div>

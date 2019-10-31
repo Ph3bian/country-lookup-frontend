@@ -32,7 +32,7 @@ const Table = ({ countryList, setCountryList, amount }) => {
                     {countryList.map(country => (
                         <tr key={`${country.fullName}-${country.id}`}>
                             <td>{country.fullName}</td>
-                            <td>{Number(country.population)}</td>
+                            <td>{(country.population).toLocaleString()}</td>
                             <td>{country.formattedCurreny}</td>
                             <td>{numFormat(country.currency).map((currency, index)=><span key={index}> {currency}</span>)}</td>
                             <td>

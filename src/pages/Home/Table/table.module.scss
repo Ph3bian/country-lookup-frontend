@@ -36,10 +36,14 @@
           border-top: 1px solid #e5e5e5;
           border-bottom: 1px solid #e5e5e5;
           span {
-            padding-right: 0.3125rem;
-            border-right: 1px solid #e5e5e5;
+          
             &:last-child{
               border-right: 0
+            }
+            &:after{
+              content:"";
+              padding-right: 0.25rem; 
+              display:block;
             }
           }
         }
@@ -52,5 +56,6 @@
     color: $error;
     padding: 5px 12px;
     border-radius: $InputBorderRadius;
+    font-size: .875rem;
   }
 }
