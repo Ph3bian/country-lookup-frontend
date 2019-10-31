@@ -1,14 +1,14 @@
 @import "../../styles/generic";
 .Home {
-  background: url('../../assets/svg/patterns.svg') no-repeat $primary;
+  background: url("../../assets/svg/patterns.svg") no-repeat $primary;
   height: 100vh;
   &Container {
     display: block;
     justify-content: center;
     margin: 10vh auto 0;
     width: 100%;
-    max-width: 35rem;
-    padding:.75rem;
+    max-width: 40rem;
+    padding: 0.75rem;
 
     &__Button {
       display: flex;
@@ -21,7 +21,6 @@
           background: transparent;
           color: $secondary;
           margin-left: 30px;
-          
         }
       }
     }
@@ -47,10 +46,9 @@
     }
     &__List {
       width: 100%;
-   display:flex;
-   justify-content: center;
-      margin-top:2rem;
-      
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
     }
   }
 }

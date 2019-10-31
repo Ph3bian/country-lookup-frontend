@@ -1,9 +1,14 @@
 @import "../../../styles/generic";
 
-.Table{
-  overflow:scroll;
+.Table {
+  overflow: scroll;
+  background: $white;
+  border-radius: $InputBorderRadius;
+  max-width: 40rem;
+  width: 100%;
+  padding: 0.825rem;
   table {
- 
+    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     thead {
@@ -14,9 +19,8 @@
         padding: 16px 12px;
         text-align: left;
         vertical-align: bottom;
-        font-size: 13px;
-        font-weight: normal;
-        color: $secondary;
+        font-size: 0.875rem;
+        color: $primary;
         text-transform: uppercase;
         white-space: nowrap;
       }
@@ -27,21 +31,26 @@
         td {
           padding: 16px 12px;
           vertical-align: middle;
-          font-size: 13px;
+          font-size: 0.875rem;
           white-space: nowrap;
-          background: #f8f8f8;
           border-top: 1px solid #e5e5e5;
           border-bottom: 1px solid #e5e5e5;
+          span {
+            padding-right: 0.3125rem;
+            border-right: 1px solid #e5e5e5;
+            &:last-child{
+              border-right: 0
+            }
+          }
         }
-       
       }
     }
   }
-    &__Delete {
-        border: 1px solid $error;
-        background: transparent;
-        color: $error;
-        padding: 5px 12px;
-        border-radius: $InputBorderRadius;
-      }
+  &__Delete {
+    border: 1px solid $error;
+    background: transparent;
+    color: $error;
+    padding: 5px 12px;
+    border-radius: $InputBorderRadius;
+  }
 }

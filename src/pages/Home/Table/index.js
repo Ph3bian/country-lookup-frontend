@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'components/Form'
 import styles from './table.module.scss'
-import { numFormat } from './functions'
+import { numFormat, convertAmount } from './functions'
 
 const Table = ({ countryList, setCountryList, amount }) => {
     const handleDelete = id => {
@@ -34,7 +34,7 @@ const Table = ({ countryList, setCountryList, amount }) => {
                             <td>{country.fullName}</td>
                             <td>{Number(country.population)}</td>
                             <td>{country.formattedCurreny}</td>
-                            <td>{numFormat(country.currency)}</td>
+                            <td>{numFormat(country.currency).map((currency, index)=><span key={index}> {currency}</span>)}</td>
                             <td>
                                 <Button
                                     value={'Delete'}
@@ -45,10 +45,7 @@ const Table = ({ countryList, setCountryList, amount }) => {
                             </td>
                             {amount > 0 && (
                                 <td>
-                                    {' '}
-                                    {numFormat(
-                                        amount * country[country.currencies]
-                                    )}
+                                    {convertAmount(amount, country.currency).map((result, index)=><span key={index}> {result}</span>)}
                                 </td>
                             )}
                         </tr>
