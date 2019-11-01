@@ -59,7 +59,7 @@ const Login = ({setAuth}) => {
                         label={'Email'}
                         name={'email'}
                         type={'email'}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => setEmail(e.target.value.toLowerCase())}
                         value={email}
                         error={errors.email}
                         required
