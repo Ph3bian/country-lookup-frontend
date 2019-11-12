@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 import styles from './login.module.scss'
 import { Input, Button } from 'components/Form'
 import { useToasts } from 'components/Toaster'
@@ -86,5 +87,8 @@ const Login = ({setAuth}) => {
         </div>
     )
 }
-
+Login.propTypes = {
+    setAuth: PropTypes.func,
+   
+}
 export default Login

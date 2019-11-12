@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import Axios from 'utils/axios'
 import { useToasts } from 'components/Toaster'
 import styles from './home.module.scss'
@@ -7,7 +8,7 @@ import Nav from './Nav'
 import Table from './Table'
 import Convert from './Convert'
 
-const Home = ({setAuth}) => {
+const Home = ({ setAuth }) => {
     const [country, setCountry] = useState('')
     const { addToast } = useToasts()
     const [isConvert, setIsConvert] = useState(false)
@@ -117,4 +118,8 @@ const Home = ({setAuth}) => {
         </div>
     )
 }
+Home.propTypes = {
+    setAuth: PropTypes.func
+}
+
 export default Home
