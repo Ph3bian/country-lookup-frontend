@@ -39,7 +39,7 @@ const Home = ({ setAuth }) => {
             })
             .catch(({ response }) => {
                 if (response) {
-                    addToast(response.data.error.message, {
+                    addToast(response.data.message, {
                         appearance: 'error'
                     })
                     return setLoading(false)
