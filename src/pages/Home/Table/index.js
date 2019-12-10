@@ -32,9 +32,15 @@ const Table = ({ countryList, setCountryList, amount }) => {
                     {countryList.map(country => (
                         <tr key={`${country.fullName}-${country.id}`}>
                             <td>{country.fullName}</td>
-                            <td>{(country.population).toLocaleString()}</td>
+                            <td>{country.population.toLocaleString()}</td>
                             <td>{country.formattedCurreny}</td>
-                            <td>{numFormat(country.currency).map((currency, index)=><span key={index}> {currency}</span>)}</td>
+                            <td>
+                                {numFormat(country.currency).map(
+                                    (currency, index) => (
+                                        <span key={index}> {currency}</span>
+                                    )
+                                )}
+                            </td>
                             <td>
                                 <Button
                                     value={'Delete'}
@@ -45,7 +51,12 @@ const Table = ({ countryList, setCountryList, amount }) => {
                             </td>
                             {amount > 0 && (
                                 <td>
-                                    {convertAmount(amount, country.currency).map((result, index)=><span key={index}> {result}</span>)}
+                                    {convertAmount(
+                                        amount,
+                                        country.currency
+                                    ).map((result, index) => (
+                                        <span key={index}> {result}</span>
+                                    ))}
                                 </td>
                             )}
                         </tr>
